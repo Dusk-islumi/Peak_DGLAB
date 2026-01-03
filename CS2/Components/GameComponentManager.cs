@@ -1,40 +1,55 @@
-using UnityEngine;
-using m2d;
-using nel;
-using nel.mgm;
 using BepInEx.Logging;
+using UnityEngine;
 
-namespace AliceInCradle
+namespace PeakDGLab
 {
     public class GameComponentManager
     {
-        private readonly BepInEx.Logging.ManualLogSource _logger;
+        private readonly ManualLogSource _logger;
 
         public GameComponentManager(ManualLogSource logger)
         {
             _logger = logger;
         }
 
-        public M2Attackable HpComponentAttackable { get; private set; } // 用于 FireMode 0
-        public PRNoel PrNoelComponent { get; private set; } // 用于 HP (模式 1/2) 和 MP
-        public M2MoverPr EpComponent { get; private set; }// 用于 EP
-        public PR PrComponent { get; private set; } // 用于高潮
+        public Character Player { get; private set; }
 
         public bool AreComponentsReady()
         {
-            return PrNoelComponent != null &&
-                   EpComponent != null &&
-                   PrComponent != null &&
-                   HpComponentAttackable != null &&
-                   PrComponent.EpCon != null;
+            if (Character.localCharacter == null) return false;
+            if (Character.localCharacter.data == null) return false;
+            if (Character.localCharacter.refs == null) return false;
+            if (Character.localCharacter.refs.afflictions == null) return false;
+            return true;
         }
 
+        // [核心] 刷新缓存的方法，PlayerStatusController 和 Main 都会调用
         public void CacheGameComponents()
         {
-            HpComponentAttackable = Object.FindObjectOfType<M2Attackable>();
-            PrNoelComponent = Object.FindObjectOfType<PRNoel>();
-            EpComponent = Object.FindObjectOfType<M2MoverPr>();
-            PrComponent = Object.FindObjectOfType<PR>();
+            Player = Character.localCharacter;
+        }
+
+        public void CheckAndLogStatus()
+        {
+            if (Character.localCharacter == null)
+            {
+                _logger.LogInfo("[Check] Character.localCharacter is null");
+                return;
+            }
+
+            if (Character.localCharacter.data == null)
+            {
+                _logger.LogInfo("[Check] Character.localCharacter.data is null");
+            }
+
+            if (Character.localCharacter.refs == null)
+            {
+                _logger.LogInfo("[Check] Character.localCharacter.refs is null");
+            }
+            else if (Character.localCharacter.refs.afflictions == null)
+            {
+                _logger.LogInfo("[Check] Character.localCharacter.refs.afflictions is null");
+            }
         }
     }
 }
