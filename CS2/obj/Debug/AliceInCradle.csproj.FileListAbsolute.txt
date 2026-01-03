@@ -17,3 +17,11 @@ E:\AAACode\AliceInCradle_ver027\BepInEx\plugins\AliceInCradleXDGLAB.pdb
 E:\AAACode\DGLAB\cs2\obj\Debug\AliceInC.76D77E87.Up2Date
 E:\AAACode\DGLAB\cs2\obj\Debug\AliceInCradleXDGLAB.dll
 E:\AAACode\DGLAB\cs2\obj\Debug\AliceInCradleXDGLAB.pdb
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\AliceInCradleXDGLAB.dll.config
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\AliceInCradleXDGLAB.dll
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\AliceInCradleXDGLAB.pdb
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\AliceInCradle.csproj.AssemblyReference.cache
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\AliceInCradle.csproj.CoreCompileInputs.cache
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\AliceInC.76D77E87.Up2Date
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\AliceInCradleXDGLAB.dll
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\AliceInCradleXDGLAB.pdb

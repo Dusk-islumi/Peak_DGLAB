@@ -1,0 +1,11 @@
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\PeakDGLab.dll.config
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\PeakDGLab.dll
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_ver028\AliceInCradle_ver028\BepInEx\plugins\PeakDGLab.pdb
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\Peek.csproj.AssemblyReference.cache
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\Peek.csproj.CoreCompileInputs.cache
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\Peek.csproj.Up2Date
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\PeakDGLab.dll
+C:\Users\xpy11\OneDrive\桌面\AliceInCradle_X_DGLAB-main\cs2\obj\Debug\PeakDGLab.pdb
+C:\Users\xpy11\OneDrive\桌面\PEEK_ver001\PEEK_ver001\BepInEx\plugins\PeakDGLab.dll.config
+C:\Users\xpy11\OneDrive\桌面\PEEK_ver001\PEEK_ver001\BepInEx\plugins\PeakDGLab.dll
+C:\Users\xpy11\OneDrive\桌面\PEEK_ver001\PEEK_ver001\BepInEx\plugins\PeakDGLab.pdb
