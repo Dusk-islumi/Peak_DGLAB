@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace PeakDGLab
@@ -8,15 +8,12 @@ namespace PeakDGLab
         public bool IsVisible { get; set; } = false;
 
         private readonly ConfigManager _config;
-
-        // [修复] 将初始高度设为 50 (或0)，让窗口根据内容自动调整高度
-        // 这样就不会出现"黑框太大"的问题，窗口会刚好包裹住所有按钮和文字
         private Rect _windowRect = new Rect(20, 20, 480, 50);
 
         // 临时变量
         private string _lowStaminaStr, _staminaCurveStr, _energyMultStr;
         private string _wDrowsy, _wCold, _wHot, _wPoison, _wThorns, _wCurse, _wHunger;
-        private string _passOutMultStr, _deathPunishStr, _deathDurationStr, _fallPunishStr; // [新增] 添加了变量 _fallPunishStr
+        private string _passOutMultStr, _deathPunishStr, _deathDurationStr, _fallPunishStr;
         private string _intervalStr, _reductionStr;
 
         // 样式缓存
@@ -46,8 +43,6 @@ namespace PeakDGLab
             _passOutMultStr = _config.PassOutMultiplier.Value.ToString("0.#");
             _deathPunishStr = _config.DeathPunishment.Value.ToString();
             _deathDurationStr = _config.DeathDuration.Value.ToString("0.#");
-
-            // [新增] 初始化摔倒惩罚字符串
             _fallPunishStr = _config.FallPunishment.Value.ToString();
 
             _intervalStr = _config.CheckIntervalMs.Value.ToString();
@@ -58,7 +53,6 @@ namespace PeakDGLab
         {
             if (!IsVisible) return;
 
-            // 初始化样式
             if (_cyanLabelStyle == null)
             {
                 _cyanLabelStyle = new GUIStyle(GUI.skin.label);
@@ -71,7 +65,7 @@ namespace PeakDGLab
             {
                 _headerStyle = new GUIStyle(GUI.skin.label);
                 _headerStyle.fontStyle = FontStyle.Bold;
-                _headerStyle.normal.textColor = new Color(1f, 0.8f, 0.4f); // 金色标题
+                _headerStyle.normal.textColor = new Color(1f, 0.8f, 0.4f);
             }
 
             GUI.backgroundColor = new Color(0.1f, 0.1f, 0.1f, 0.95f);
@@ -110,7 +104,6 @@ namespace PeakDGLab
 
             // === 滚动区域 (防止窗口过长) ===
             GUILayout.Space(5);
-            // 简单分割
             GUILayout.Box("", GUILayout.Height(2), GUILayout.ExpandWidth(true));
 
             // === 1. 配置区域 ===
@@ -143,7 +136,6 @@ namespace PeakDGLab
                 DrawFloatField("昏迷震动倍率:", ref _passOutMultStr, _config.PassOutMultiplier);
                 DrawIntField("死亡惩罚强度:", ref _deathPunishStr, _config.DeathPunishment);
                 DrawFloatField("死亡惩罚时长(秒):", ref _deathDurationStr, _config.DeathDuration);
-                // [新增] 摔倒惩罚输入框
                 DrawIntField("摔倒惩罚强度:", ref _fallPunishStr, _config.FallPunishment);
             });
 
@@ -195,14 +187,14 @@ namespace PeakDGLab
                     GUILayout.Label($"状态: {statusStr}");
                 }
 
-                // [新增] 摔倒状态显示
+                // 显示摔倒状态
                 if (d.fallSeconds > 0.1f)
                 {
                     GUILayout.Label($"<color=orange>摔倒/失控: {d.fallSeconds:F1}s</color>");
                 }
 
-                // 死亡倒计时
-                if (d.dead || d.deathTimer > 0)
+                // [修复] 只有在 (真死) 或者 (濒死且瘫软) 时才显示红字
+                if (d.dead || (d.deathTimer > 0 && d.currentRagdollControll < 0.5f))
                 {
                     GUILayout.Label($"!! 死亡状态 !!", new GUIStyle(GUI.skin.label) { normal = { textColor = Color.red } });
                 }
